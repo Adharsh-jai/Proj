@@ -4,7 +4,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import sqlite3
-
+#app is an object of FastAPI class, which is used to create the application instance. It is the main entry point for defining routes, handling requests, and managing the application's lifecycle.
 app = FastAPI()
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
