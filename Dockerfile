@@ -1,4 +1,13 @@
 FROM python:3.8-slim
+
 WORKDIR /app
-COPY app.py .
-CMD ["python", "app.py"]
+
+COPY requirements.txt .
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
+EXPOSE 5000
+
+CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5000"]
